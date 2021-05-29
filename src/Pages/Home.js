@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 // Components
 import Welcome from 'Components/Welcome';
@@ -12,18 +12,34 @@ const Box = styled.div`
   top: 0px;
   left: 0px;
   width: 100%;
-  background-color: #f5f6fa;
-  box-shadow: 0px 1px 3px black;
+  height: 60px;
   z-index: 100;
   display: flex;
+  justify-content: space-between;
   padding: 0px 50px;
+  background-color: #f5f6fa;
+  box-shadow: 0px 1px 3px black;
+  @media (max-width: 770px) {
+    padding: 0px 20px;
+  }
 `;
 
 const List = styled.ul`
-  width: 50%;
   display: flex;
   height: 60px;
-  min-width: 650px;
+  min-width: 615px;
+  @media (max-width: 770px) {
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    height: auto;
+    min-width: 0px;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f5f6fa;
+    opacity: 0.5px;
+    display: ${({ isOn }) => (isOn ? 'display' : 'none')};
+  }
 `;
 
 const Item = styled.li`
@@ -37,22 +53,31 @@ const Item = styled.li`
     box-shadow: inset -4px -4px #d1d8e0;
     transition: box-shadow 0.2s linear;
   }
+  @media (max-width: 770px) {
+    padding: 10px;
+  }
 `;
 
 const IconList = styled.ul`
-  width: 50%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
 `;
 
 const IconItem = styled.li`
+  :first-child {
+    display: none;
+  }
   padding: 0px 10px;
   font-size: 30px;
   cursor: pointer;
   :hover {
     font-size: 35px;
     transition: font-size 0.1s linear;
+  }
+  @media (max-width: 770px) {
+    :first-child {
+      display: inline;
+    }
   }
 `;
 
@@ -64,8 +89,7 @@ const Home = () => {
   const section3 = useRef();
   const section4 = useRef();
   const section5 = useRef();
-
-  useEffect(() => {});
+  const [isOn, setIsOn] = useState(false);
 
   const handleClick = ({ current }) => {
     window.scroll({
@@ -75,17 +99,24 @@ const Home = () => {
     });
   };
 
+  const displayToggle = (isOn) => {
+    setIsOn(!isOn);
+  };
+
   return (
     <>
       <Box>
-        <List>
+        <List isOn={isOn}>
           <Item onClick={() => handleClick(section1)}>Welcome</Item>
           <Item onClick={() => handleClick(section2)}>Who I Am</Item>
           <Item onClick={() => handleClick(section3)}>Projects</Item>
           <Item onClick={() => handleClick(section4)}>How To Study</Item>
-          <Item onClick={() => handleClick(section5)}>Contact</Item>
+          <Item onClick={() => handleClick(section5)}>Contacts</Item>
         </List>
         <IconList>
+          <IconItem>
+            <i onClick={() => displayToggle(isOn)} className="fas fa-bars"></i>
+          </IconItem>
           <IconItem>
             <i className="fab fa-github"></i>
           </IconItem>
