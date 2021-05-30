@@ -38,14 +38,12 @@ const moveUpToDown = keyframes`
 const Box = styled.div`
   height: calc(100vh - 60px);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url(${backdrop});
   background-size: cover;
   background-position: top;
   position: relative;
-  /* max-width: 1140px; */
   :after {
     content: '';
     position: absolute;
@@ -61,12 +59,24 @@ const Box = styled.div`
     height: 10em;
   }
 `;
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 100px;
+`;
+
 const Title = styled.h3`
   font-size: 40px;
-  line-height: 1.5;
-  position: relative;
+  font-weight: 600;
+  line-height: 2;
+  text-align: center;
   opacity: 0;
   animation: ${blink} 1s 0.5s ease-in-out forwards;
+  @media (max-width: 770px) {
+    font-size: 30px;
+  }
 `;
 
 const Icon = styled.i`
@@ -95,15 +105,19 @@ const Welcome = () => {
 
   return (
     <Box ref={section}>
-      <Title>
-        안녕하세요.
-        <br />
-        프론트엔드 개발 직무에 지원하게 된 류현욱입니다.
-      </Title>
-      <Icon
-        onClick={() => handleClick(section)}
-        className="fas fa-arrow-circle-down"
-      ></Icon>
+      <Content>
+        <Title>
+          Portfolio of applicant
+          <br />
+          preparing
+          <br />
+          Front-end developer.
+        </Title>
+        <Icon
+          onClick={() => handleClick(section)}
+          className="fas fa-arrow-circle-down"
+        ></Icon>
+      </Content>
     </Box>
   );
 };

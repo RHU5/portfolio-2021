@@ -16,6 +16,9 @@ const GlobalStyles = createGlobalStyle`
         padding-top: 60px;
         font-family: 'Jal_Onuel', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
+    a{
+        color: black;
+    }
 `;
 
 export default GlobalStyles;

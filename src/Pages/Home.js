@@ -6,6 +6,8 @@ import WhoIAm from 'Components/WhoIAm';
 import Projects from 'Components/Projects';
 import HowToStudy from 'Components/HowToStudy';
 import Contacts from 'Components/Contacts';
+// Data
+import data from 'Data';
 
 const Box = styled.div`
   position: fixed;
@@ -53,8 +55,11 @@ const Item = styled.li`
     box-shadow: inset -4px -4px #d1d8e0;
     transition: box-shadow 0.2s linear;
   }
+  :nth-child(${({ selected }) => selected}) {
+    box-shadow: inset -4px -4px #d1d8e0;
+  }
   @media (max-width: 770px) {
-    padding: 10px;
+    padding: 10px 20px;
   }
 `;
 
@@ -84,14 +89,11 @@ const IconItem = styled.li`
 const Wrapper = styled.div``;
 
 const Home = () => {
-  const section1 = useRef();
-  const section2 = useRef();
-  const section3 = useRef();
-  const section4 = useRef();
-  const section5 = useRef();
+  const [info, setInfo] = useState(data);
   const [isOn, setIsOn] = useState(false);
+  const section = useRef([]);
 
-  const handleClick = ({ current }) => {
+  const handleClick = (current) => {
     window.scroll({
       top: current.offsetTop - 60,
       left: 0,
@@ -107,39 +109,51 @@ const Home = () => {
     <>
       <Box>
         <List isOn={isOn}>
-          <Item onClick={() => handleClick(section1)}>Welcome</Item>
-          <Item onClick={() => handleClick(section2)}>Who I Am</Item>
-          <Item onClick={() => handleClick(section3)}>Projects</Item>
-          <Item onClick={() => handleClick(section4)}>How To Study</Item>
-          <Item onClick={() => handleClick(section5)}>Contacts</Item>
+          {['Welcome', 'Who I Am', 'Projects', 'How To Study', 'Contacts'].map(
+            (title, index) => (
+              <Item
+                key={index}
+                onClick={() => handleClick(section.current[index])}
+              >
+                {title}
+              </Item>
+            ),
+          )}
         </List>
         <IconList>
           <IconItem>
             <i onClick={() => displayToggle(isOn)} className="fas fa-bars"></i>
           </IconItem>
           <IconItem>
-            <i className="fab fa-github"></i>
+            <a href="https://github.com/RHU5" target="_blank" rel="noreferrer">
+              <i className="fab fa-github"></i>
+            </a>
           </IconItem>
           <IconItem>
-            <i className="fab fa-blogger"></i>
+            <a
+              href="https://velog.io/@gusdnr814"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i className="fab fa-blogger"></i>
+            </a>
           </IconItem>
         </IconList>
       </Box>
-      <Wrapper ref={section1}>
-        <Welcome />
-      </Wrapper>
-      <Wrapper ref={section2}>
-        <WhoIAm />
-      </Wrapper>
-      <Wrapper ref={section3}>
-        <Projects />
-      </Wrapper>
-      <Wrapper ref={section4}>
-        <HowToStudy />
-      </Wrapper>
-      <Wrapper ref={section5}>
-        <Contacts />
-      </Wrapper>
+      {[
+        <Welcome />,
+        <WhoIAm />,
+        <Projects projects={info.project} />,
+        <HowToStudy study={info.study} />,
+        <Contacts />,
+      ].map((item, index) => (
+        <Wrapper
+          key={index}
+          ref={(element) => (section.current[index] = element)}
+        >
+          {item}
+        </Wrapper>
+      ))}
     </>
   );
 };
