@@ -18,7 +18,8 @@ const Data = {
       id: 0,
       name: '박스마켓',
       skill: [html, css, js, nodejs, mongodb],
-      description: '박스마켓',
+      description:
+        '박스마켓은 "기존 중고 거래 사이트에 직거래 장소를 지도로 표시할 수 있는 기능이 있으면 어떨까?" 라는 생각에서 출발하였습니다.',
       image: boxmarket,
       gitUrl: 'https://github.com/RHU5/seconde-hand-store-2021-side',
       demoUrl: 'https://shstore.herokuapp.com/',

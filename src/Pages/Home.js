@@ -89,7 +89,7 @@ const IconItem = styled.li`
 const Wrapper = styled.div``;
 
 const Home = () => {
-  const [info, setInfo] = useState(data);
+  const info = data;
   const [isOn, setIsOn] = useState(false);
   const section = useRef([]);
 
