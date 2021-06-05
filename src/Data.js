@@ -23,24 +23,29 @@ const Data = {
       image: boxmarket,
       gitUrl: 'https://github.com/RHU5/seconde-hand-store-2021-side',
       demoUrl: 'https://shstore.herokuapp.com/',
+      gif: 'https://user-images.githubusercontent.com/75672249/117532289-a72bb180-b021-11eb-8fda-55b9a091321c.gif',
     },
     {
       id: 1,
       name: '감정 쓰레기통',
       skill: [html, css, js, react],
-      description: '감정 쓰레기통',
+      description:
+        '감정 쓰레기통은 자신이 가진 스트레스와 불안감 등 여러 힘든 감정이 생긴 원인을 글로 작성해보는 시간을 가지고 힘든 감정과 연관된 사진이 있다면 이를 불 태우는 과정을 거쳐 마음의 위로를 얻기 위한 사이트입니다.',
       image: trashcan,
       gitUrl: 'https://github.com/RHU5/emotion-trash-can-2021-side',
       demoUrl: 'https://rhu5.github.io/emotion-trash-can-2021-side/',
+      gif: 'https://user-images.githubusercontent.com/75672249/120601312-bc5ef900-c484-11eb-9cf5-87b6ea0d3add.gif',
     },
     {
       id: 2,
       name: '썬더 인포',
       skill: [html, css, js, react],
-      description: '썬더 인포',
+      description:
+        '썬더 인포는 themoviedb api를 사용하여 영화에 대한 정보를 제공해주는 사이트입니다.',
       image: thunderinfo,
       gitUrl: 'https://github.com/RHU5/nomflix-clone-2021',
       demoUrl: 'https://trusting-jennings-569099.netlify.app/#/',
+      gif: 'https://user-images.githubusercontent.com/75672249/120606267-f7aff680-c489-11eb-9f7f-66a3823bbcb0.gif',
     },
   ],
   study: [

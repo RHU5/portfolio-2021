@@ -21,8 +21,16 @@ const Title = styled.h3`
   @media (max-width: 770px) {
     font-size: 25px;
   }
-  border-bottom: 8px solid black;
+  border-bottom: 8px solid white;
   padding-bottom: 10px;
+  color: white;
+`;
+
+const Description = styled.p`
+  line-height: 2;
+  margin-bottom: 50px;
+  color: white;
+  font-size: 18px;
 `;
 
 const ProjectList = styled.div`
@@ -98,6 +106,30 @@ const Name = styled.span`
   padding: 30px 20px;
   font-size: 30px;
   color: white;
+  @media (max-width: 770px) {
+    font-size: 25px;
+  }
+`;
+
+const NameBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const LinkBox = styled.div`
+  padding: 30px 20px;
+`;
+
+const Link = styled.a`
+  :not(:last-child) {
+    margin-right: 10px;
+  }
+  font-size: 20px;
+  color: white;
+  :hover {
+    color: red;
+  }
 `;
 
 const IconBox = styled.div`
@@ -139,10 +171,19 @@ const HowToStudy = ({ study }) => {
   return (
     <Box>
       <Title>How To Study</Title>
+      <Description>
+        저는 여러 로드맵을 참고하여 HTML, CSS, Javascript를 우선적으로 공부하고
+        이후에 Node.js, MongoDB, React를 학습하였습니다. 클론 코딩을 통해
+        웹사이트를 직접 제작해보면서 실행환경 설정, 배포, 디자인 패턴에 대해
+        경험해볼 수 있었습니다. 이론적인 부분에 있어서는 모르는 개념이 생길
+        때마다 PoiemaWeb, javascript.info, Google을 참조하여 공부했습니다.
+        두루뭉술하게 이해된 개념을 잡기 위해 블로그에 정리하면서 내 것으로
+        만들도록 노력했습니다.
+      </Description>
       <ProjectList>
         <ProjectNav>
           <Arrow onClick={decreasePos}>
-            <i class="fas fa-arrow-circle-left"></i>
+            <i className="fas fa-arrow-circle-left"></i>
           </Arrow>
           <DotBox>
             <Dot current={currentPos} onClick={() => setCurrentPos(0)}></Dot>
@@ -151,29 +192,37 @@ const HowToStudy = ({ study }) => {
             <Dot current={currentPos} onClick={() => setCurrentPos(3)}></Dot>
           </DotBox>
           <Arrow onClick={increasePos}>
-            <i class="fas fa-arrow-circle-right"></i>
+            <i className="fas fa-arrow-circle-right"></i>
           </Arrow>
         </ProjectNav>
         <ProjectItem>
-          <Name>{study[currentPos].name}</Name>
+          <NameBox>
+            <Name>{study[currentPos].name}</Name>
+            <LinkBox>
+              <Link
+                href={study[currentPos].gitUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Git
+              </Link>
+              <Link
+                href={study[currentPos].demoUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Demo
+              </Link>
+            </LinkBox>
+          </NameBox>
           <IconBox>
             {study[currentPos].skill.map((icon, index) => (
               <Icon key={index} src={icon} alt="" />
             ))}
           </IconBox>
+
           <Image src={study[currentPos].image} />
         </ProjectItem>
-        {/* {study.map((project) => (
-          <ProjectItem key={project.id}>
-            <Name>{project.name}</Name>
-            <Image src={project.image} />
-            <IconBox>
-              {project.skill.map((icon, index) => (
-                <Icon key={index} src={icon} alt="" />
-              ))}
-            </IconBox>
-          </ProjectItem>
-        ))} */}
       </ProjectList>
     </Box>
   );

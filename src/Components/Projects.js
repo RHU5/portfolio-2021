@@ -136,6 +136,7 @@ const Projects = ({ projects }) => {
               gitUrl={projects[currentPos].gitUrl}
               demoUrl={projects[currentPos].demoUrl}
               description={projects[currentPos].description}
+              gif={projects[currentPos].gif}
             />
           </ModalBox>
         )}
