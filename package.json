@@ -28,6 +28,7 @@
       "prettier"
     ]
   },
+  "homepage": "https://lucid-mcclintock-5dcada.netlify.app",
   "browserslist": {
     "production": [
       ">0.2%",
