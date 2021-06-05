@@ -12,7 +12,23 @@ import trashcan from 'assets/trashcan.png';
 import boxmarket from 'assets/boxmarket.png';
 import thunderinfo from 'assets/thunderinfo.png';
 
-const Data = {
+export const preloadImage = [
+  html,
+  css,
+  js,
+  react,
+  nodejs,
+  mongodb,
+  spongetalk,
+  momentum,
+  wetube,
+  movieapp,
+  trashcan,
+  boxmarket,
+  thunderinfo,
+];
+
+export const data = {
   project: [
     {
       id: 0,
@@ -87,5 +103,3 @@ const Data = {
     },
   ],
 };
-
-export default Data;

@@ -21,14 +21,16 @@ const Title = styled.h3`
   font-weight: 700;
   border-bottom: 5px solid black;
   padding-bottom: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 80px;
   @media (max-width: 770px) {
+    margin-bottom: 30px;
     font-size: 30px;
   }
 `;
 
 const Content = styled.div`
   display: flex;
+  justify-content: center;
   align-items: flex-start;
   @media (max-width: 770px) {
     flex-direction: column;

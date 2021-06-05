@@ -19,7 +19,7 @@ const Title = styled.h3`
   font-weight: 700;
   border-bottom: 5px solid white;
   padding-bottom: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 80px;
   color: white;
   @media (max-width: 770px) {
     font-size: 30px;

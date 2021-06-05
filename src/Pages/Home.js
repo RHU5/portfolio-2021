@@ -7,7 +7,8 @@ import Projects from 'Components/Projects';
 import HowToStudy from 'Components/HowToStudy';
 import Contacts from 'Components/Contacts';
 // Data
-import data from 'Data';
+import { preloadImage, data } from 'data';
+import Loader from 'Components/Loader';
 
 const Box = styled.div`
   position: fixed;
@@ -91,12 +92,15 @@ const Wrapper = styled.div``;
 const Home = () => {
   const info = data;
   const [isOn, setIsOn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const section = useRef([]);
 
   useEffect(() => {
-    const preloadImage = new Image();
-    data.study.map((project) => (preloadImage.src = project.image));
-    return () => {};
+    const newImage = new Image();
+    preloadImage.forEach((image) => (newImage.src = image));
+    newImage.onload = () => {
+      setIsLoading(false);
+    };
   });
 
   const handleClick = (current) => {
@@ -146,20 +150,24 @@ const Home = () => {
           </IconItem>
         </IconList>
       </Box>
-      {[
-        <Welcome />,
-        <WhoIAm />,
-        <Projects projects={info.project} />,
-        <HowToStudy study={info.study} />,
-        <Contacts />,
-      ].map((item, index) => (
-        <Wrapper
-          key={index}
-          ref={(element) => (section.current[index] = element)}
-        >
-          {item}
-        </Wrapper>
-      ))}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        [
+          <Welcome />,
+          <WhoIAm />,
+          <Projects projects={info.project} />,
+          <HowToStudy study={info.study} />,
+          <Contacts />,
+        ].map((item, index) => (
+          <Wrapper
+            key={index}
+            ref={(element) => (section.current[index] = element)}
+          >
+            {item}
+          </Wrapper>
+        ))
+      )}
     </>
   );
 };

@@ -20,15 +20,16 @@ const Title = styled.h3`
   font-weight: 700;
   border-bottom: 5px solid black;
   padding-bottom: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 80px;
   @media (max-width: 770px) {
+    margin-bottom: 30px;
     font-size: 30px;
   }
 `;
 
 const ProjectList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 400px));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
   justify-content: center;
   gap: 30px;
   width: 100%;
