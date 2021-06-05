@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 // Components
 import Welcome from 'Components/Welcome';
@@ -92,6 +92,12 @@ const Home = () => {
   const info = data;
   const [isOn, setIsOn] = useState(false);
   const section = useRef([]);
+
+  useEffect(() => {
+    const preloadImage = new Image();
+    data.study.map((project) => (preloadImage.src = project.image));
+    return () => {};
+  });
 
   const handleClick = (current) => {
     window.scroll({

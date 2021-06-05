@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import profile from 'assets/profile.jpg';
 
 const Box = styled.div`
-  /* min-height: 70vh; */
   padding: 100px;
   background: rgb(255, 255, 255);
   background: linear-gradient(
@@ -17,6 +16,17 @@ const Box = styled.div`
   }
 `;
 
+const Title = styled.h3`
+  font-size: 50px;
+  font-weight: 700;
+  border-bottom: 5px solid black;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  @media (max-width: 770px) {
+    font-size: 30px;
+  }
+`;
+
 const Content = styled.div`
   display: flex;
   align-items: flex-start;
@@ -26,23 +36,13 @@ const Content = styled.div`
   }
 `;
 
-const Title = styled.h3`
-  font-size: 50px;
-  margin-bottom: 50px;
-  font-weight: 600;
-  @media (max-width: 770px) {
-    font-size: 25px;
-  }
-  border-bottom: 8px solid black;
-  padding-bottom: 10px;
-`;
-
 const Image = styled.img`
-  margin-right: 30px;
-  border-radius: 10%;
   width: 40%;
   max-width: 300px;
+  margin-right: 30px;
+  border-radius: 20px;
   @media (max-width: 770px) {
+    margin-right: 0px;
     margin-bottom: 30px;
     width: 100%;
   }

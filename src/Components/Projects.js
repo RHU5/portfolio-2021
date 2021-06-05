@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Modal from './Modal';
 
 const Box = styled.div`
-  /* min-height: 100vh; */
   padding: 100px;
   background: rgb(255, 255, 255);
   background: linear-gradient(
@@ -18,32 +17,30 @@ const Box = styled.div`
 
 const Title = styled.h3`
   font-size: 50px;
-  margin-bottom: 50px;
-  font-weight: 600;
+  font-weight: 700;
+  border-bottom: 5px solid black;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
   @media (max-width: 770px) {
-    font-size: 25px;
+    font-size: 30px;
   }
-  border-bottom: 8px solid black;
-  padding-bottom: 10px;
 `;
 
 const ProjectList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 400px));
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
 `;
 
 const ProjectItem = styled.li`
-  background-color: black;
   border-radius: 10px;
-  flex: 1 0 30%;
-  max-width: 500px;
-  margin: 10px;
+  background-color: black;
   box-shadow: 8px 8px 6px 3px rgba(50, 50, 50, 1);
   position: relative;
   :hover::after {
-    font-size: 30px;
     content: '자세히 보기';
-    color: white;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -54,8 +51,20 @@ const ProjectItem = styled.li`
     align-items: center;
     background-color: rgba(50, 50, 50, 0.8);
     border-radius: 10px;
+    color: white;
     opacity: 1;
+    font-size: 30px;
     cursor: pointer;
+  }
+`;
+
+const Name = styled.span`
+  display: block;
+  padding: 30px 20px 20px;
+  font-size: 30px;
+  color: white;
+  @media (max-width: 770px) {
+    font-size: 23px;
   }
 `;
 
@@ -65,41 +74,17 @@ const Image = styled.img`
   border-bottom: 5px solid #636e72;
 `;
 
-const Name = styled.span`
-  display: block;
-  padding: 30px 20px;
-  font-size: 30px;
-  color: white;
-`;
-
 const IconBox = styled.div`
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13%, auto));
+  gap: 10px;
+  padding: 10px 20px 20px;
 `;
 
 const Icon = styled.img`
-  display: block;
-  width: 50px;
-  :not(:last-child) {
-    margin-right: 10px;
-  }
-  background-color: white;
-  border-radius: 10px;
-  padding: 5px;
-`;
-
-const ModalBox = styled.div`
-  position: fixed;
-  top: 60px;
-  left: 0px;
   width: 100%;
-  height: 100vh;
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: white;
+  border-radius: 5px;
 `;
 
 const Projects = ({ projects }) => {
@@ -131,14 +116,13 @@ const Projects = ({ projects }) => {
           </ProjectItem>
         ))}
         {currentPos !== null && (
-          <ModalBox onClick={closeModal}>
-            <Modal
-              gitUrl={projects[currentPos].gitUrl}
-              demoUrl={projects[currentPos].demoUrl}
-              description={projects[currentPos].description}
-              gif={projects[currentPos].gif}
-            />
-          </ModalBox>
+          <Modal
+            closeModal={closeModal}
+            gitUrl={projects[currentPos].gitUrl}
+            demoUrl={projects[currentPos].demoUrl}
+            description={projects[currentPos].description}
+            gif={projects[currentPos].gif}
+          />
         )}
       </ProjectList>
     </Box>

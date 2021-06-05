@@ -16,19 +16,19 @@ const Box = styled.div`
 
 const Title = styled.h3`
   font-size: 50px;
-  margin-bottom: 50px;
-  font-weight: 600;
-  @media (max-width: 770px) {
-    font-size: 25px;
-  }
-  border-bottom: 8px solid white;
-  padding-bottom: 10px;
+  font-weight: 700;
+  border-bottom: 5px solid white;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
   color: white;
+  @media (max-width: 770px) {
+    font-size: 30px;
+  }
 `;
 
 const Description = styled.p`
-  line-height: 2;
   margin-bottom: 50px;
+  line-height: 2;
   color: white;
   font-size: 18px;
 `;
@@ -46,10 +46,10 @@ const ProjectNav = styled.div`
   align-items: center;
   width: 50%;
   max-width: 500px;
+  margin-bottom: 30px;
   @media (max-width: 770px) {
     width: 100%;
   }
-  margin-bottom: 30px;
 `;
 
 const Arrow = styled.div`
@@ -84,8 +84,8 @@ const Dot = styled.div`
 `;
 
 const ProjectItem = styled.div`
-  background-color: black;
   border-radius: 10px;
+  background-color: black;
   box-shadow: 8px 8px 6px 3px rgba(50, 50, 50, 1);
   width: 50%;
   max-width: 500px;
@@ -101,52 +101,51 @@ const Image = styled.img`
   margin-bottom: 10px;
 `;
 
-const Name = styled.span`
-  display: block;
-  padding: 30px 20px;
-  font-size: 30px;
-  color: white;
-  @media (max-width: 770px) {
-    font-size: 25px;
-  }
-`;
-
 const NameBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
+const Name = styled.span`
+  display: block;
+  padding: 30px 20px 20px;
+  font-size: 30px;
+  color: white;
+  @media (max-width: 770px) {
+    font-size: 18px;
+  }
+`;
+
 const LinkBox = styled.div`
-  padding: 30px 20px;
+  padding: 30px 20px 20px;
 `;
 
 const Link = styled.a`
+  font-size: 30px;
+  color: white;
   :not(:last-child) {
     margin-right: 10px;
   }
-  font-size: 20px;
-  color: white;
   :hover {
     color: red;
+  }
+  @media (max-width: 770px) {
+    font-size: 18px;
   }
 `;
 
 const IconBox = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 0px 20px 20px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13%, auto));
+  gap: 10px;
+  padding: 10px 20px 20px;
 `;
 
 const Icon = styled.img`
-  display: block;
-  width: 50px;
-  :not(:last-child) {
-    margin-right: 10px;
-  }
+  width: 100%;
   background-color: white;
-  border-radius: 10px;
-  padding: 5px;
+  border-radius: 5px;
 `;
 
 const HowToStudy = ({ study }) => {

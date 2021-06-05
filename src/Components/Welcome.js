@@ -60,16 +60,9 @@ const Box = styled.div`
   }
 `;
 
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0px 100px;
-`;
-
 const Title = styled.h3`
-  font-size: 40px;
-  font-weight: 600;
+  font-size: 38px;
+  font-weight: 700;
   line-height: 2;
   text-align: center;
   opacity: 0;
@@ -85,11 +78,11 @@ const Icon = styled.i`
   font-size: 30px;
   animation: ${moveUpToDown} 2s ease-out 5;
   cursor: pointer;
+  z-index: 1;
   :hover {
     font-size: 40px;
     transition: font-size 0.1s linear;
   }
-  z-index: 1;
 `;
 
 const Welcome = () => {
@@ -105,19 +98,17 @@ const Welcome = () => {
 
   return (
     <Box ref={section}>
-      <Content>
-        <Title>
-          Portfolio of applicant
-          <br />
-          preparing
-          <br />
-          Front-end developer.
-        </Title>
-        <Icon
-          onClick={() => handleClick(section)}
-          className="fas fa-arrow-circle-down"
-        ></Icon>
-      </Content>
+      <Title>
+        Portfolio of applicant
+        <br />
+        preparing
+        <br />
+        Front-end developer.
+      </Title>
+      <Icon
+        onClick={() => handleClick(section)}
+        className="fas fa-arrow-circle-down"
+      ></Icon>
     </Box>
   );
 };

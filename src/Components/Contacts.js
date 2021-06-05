@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Box = styled.div`
-  /* height: 50vh; */
   padding: 100px;
   background: rgb(255, 255, 255);
   background: linear-gradient(
@@ -16,15 +15,15 @@ const Box = styled.div`
 `;
 
 const Title = styled.h3`
-  color: white;
   font-size: 50px;
-  margin-bottom: 50px;
-  font-weight: 600;
+  font-weight: 700;
+  border-bottom: 5px solid white;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  color: white;
   @media (max-width: 770px) {
-    font-size: 25px;
+    font-size: 30px;
   }
-  border-bottom: 8px solid white;
-  padding-bottom: 10px;
 `;
 
 const Contents = styled.div`
@@ -35,7 +34,10 @@ const Contents = styled.div`
     font-size: 30px;
     color: white;
     :first-child {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
+    }
+    @media (max-width: 770px) {
+      font-size: 18px;
     }
   }
 `;
