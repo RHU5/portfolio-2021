@@ -8,8 +8,12 @@ const Box = styled.div`
   position: relative;
   top: -30px;
   padding: 20px;
+  width: 50%;
+  max-height: 80%;
+  overflow-x: auto;
   @media (max-width: 770px) {
     padding: 10px;
+    width: 80%;
   }
 `;
 
@@ -20,45 +24,30 @@ const ImageBox = styled.div`
 
 const Image = styled.img`
   margin-bottom: 20px;
-  width: 800px;
-  max-height: 400px;
-  @media (max-width: 770px) {
-    width: 360px;
-  }
+  width: 100%;
 `;
 
 const LinkBox = styled.div`
-  margin-bottom: 30px;
-  @media (max-width: 770px) {
-    margin-bottom: 20px;
-  }
+  margin-bottom: 20px;
+  width: 100%;
 `;
 
 const Link = styled.a`
-  font-size: 30px;
+  font-size: 1.5vw;
   :hover {
     color: red;
-  }
-  @media (max-width: 770px) {
-    font-size: 20px;
   }
 `;
 
 const Divider = styled.span`
-  font-size: 30px;
+  font-size: 1.5vw;
   padding: 0px 10px;
-  @media (max-width: 770px) {
-    font-size: 20px;
-  }
 `;
 
 const Text = styled.p`
+  width: 100%;
   line-height: 2;
-  width: 800px;
-  font-size: 18px;
-  @media (max-width: 770px) {
-    width: 360px;
-  }
+  font-size: 1.5vw;
 `;
 
 const Modal = ({ gitUrl, demoUrl, description, gif }) => {
