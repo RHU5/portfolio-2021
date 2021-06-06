@@ -90,6 +90,7 @@ const ProjectItem = styled.div`
   box-shadow: 8px 8px 6px 3px rgba(50, 50, 50, 1);
   width: 50%;
   max-width: 500px;
+  min-width: 330px;
   @media (max-width: 770px) {
     width: 100%;
   }
@@ -110,16 +111,13 @@ const NameBox = styled.div`
 
 const Name = styled.span`
   display: block;
-  padding: 30px 20px 20px;
+  padding: 25px 20px 15px;
   font-size: 20px;
   color: white;
-  @media (max-width: 770px) {
-    font-size: 15px;
-  }
 `;
 
 const LinkBox = styled.div`
-  padding: 30px 20px 20px;
+  padding: 25px 20px 15px;
 `;
 
 const Link = styled.a`
@@ -129,16 +127,13 @@ const Link = styled.a`
     margin-right: 10px;
   }
   :hover {
-    color: red;
-  }
-  @media (max-width: 770px) {
-    font-size: 15px;
+    color: #f0932b;
   }
 `;
 
 const IconBox = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(13%, auto));
+  grid-template-columns: repeat(auto-fill, minmax(9%, 10%));
   gap: 10px;
   padding: 10px 20px 20px;
 `;
@@ -166,15 +161,6 @@ const HowToStudy = ({ study }) => {
       return;
     }
     setCurrentPos(currentPos - 1);
-  };
-
-  const handleLoad = () => {
-    const newImage = new Image();
-    if (currentPos < study.length - 1) {
-      newImage.src = study[currentPos + 1].image;
-    } else {
-      newImage.src = study[0].image;
-    }
   };
 
   return (
@@ -229,7 +215,7 @@ const HowToStudy = ({ study }) => {
               <Icon key={index} src={icon} alt="" />
             ))}
           </IconBox>
-          <ImageUrl src={study[currentPos].image} onLoad={handleLoad} />
+          <ImageUrl src={study[currentPos].image} />
         </ProjectItem>
       </ProjectList>
     </Box>

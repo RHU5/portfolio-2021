@@ -42,6 +42,14 @@ export const data = {
       skill: [html, css, js, nodejs, mongodb],
       description:
         '박스마켓은 "기존 중고 거래 사이트에 직거래 장소를 지도로 표시할 수 있는 기능이 있으면 어떨까?" 라는 생각에서 출발하였습니다.',
+      feature: [
+        '✔ express를 이용한 서버 생성',
+        '✔ MongoDB로 유저 및 게시글 관리',
+        '✔ passport.js를 이용한 로그인 구현',
+        '✔ multer S3를 이용한 aws 업로드',
+        '✔ 카카오 맵 API 활용',
+        '✔ MVC 패턴 활용',
+      ],
       image: boxmarket,
       gitUrl: 'https://github.com/RHU5/seconde-hand-store-2021-side',
       demoUrl: 'https://shstore.herokuapp.com/',
@@ -52,7 +60,12 @@ export const data = {
       name: '감정 쓰레기통',
       skill: [html, css, js, react],
       description:
-        '감정 쓰레기통은 자신이 가진 스트레스와 불안감 등 여러 힘든 감정이 생긴 원인을 글로 작성해보는 시간을 가지고 힘든 감정과 연관된 사진이 있다면 이를 불 태우는 과정을 거쳐 마음의 위로를 얻기 위한 사이트입니다.',
+        '감정 쓰레기통은 힘든 감정을 글로 작성해보고 관련 사진을 지우면서 감정을 덜어내는 사이트입니다.',
+      feature: [
+        '✔ react-router-dom 활용',
+        '✔ React Hooks 활용',
+        '✔ Drag & Drop 이미지 로드 구현',
+      ],
       image: trashcan,
       gitUrl: 'https://github.com/RHU5/emotion-trash-can-2021-side',
       demoUrl: 'https://rhu5.github.io/emotion-trash-can-2021-side/',
@@ -64,6 +77,13 @@ export const data = {
       skill: [html, css, js, react],
       description:
         '썬더 인포는 themoviedb api를 사용하여 영화에 대한 정보를 제공해주는 사이트입니다.',
+      feature: [
+        '✔ Axios를 이용한 데이터 처리',
+        '✔ Presenter & Container 패턴 활용',
+        '✔ react-router-dom를 활용한 라우팅 중첩',
+        '✔ React Hooks 활용',
+        '✔ Tab 구현',
+      ],
       image: thunderinfo,
       gitUrl: 'https://github.com/RHU5/nomflix-clone-2021',
       demoUrl: 'https://trusting-jennings-569099.netlify.app/#/',

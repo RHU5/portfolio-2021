@@ -61,12 +61,9 @@ const ProjectItem = styled.li`
 
 const Name = styled.span`
   display: block;
-  padding: 30px 20px 20px;
-  font-size: 30px;
+  padding: 25px 20px 15px;
+  font-size: 20px;
   color: white;
-  @media (max-width: 770px) {
-    font-size: 23px;
-  }
 `;
 
 const Image = styled.img`
@@ -77,7 +74,7 @@ const Image = styled.img`
 
 const IconBox = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(13%, auto));
+  grid-template-columns: repeat(auto-fill, minmax(9%, 10%));
   gap: 10px;
   padding: 10px 20px 20px;
 `;
@@ -119,9 +116,10 @@ const Projects = ({ projects }) => {
         {currentPos !== null && (
           <Modal
             closeModal={closeModal}
+            description={projects[currentPos].description}
+            feature={projects[currentPos].feature}
             gitUrl={projects[currentPos].gitUrl}
             demoUrl={projects[currentPos].demoUrl}
-            description={projects[currentPos].description}
             gif={projects[currentPos].gif}
           />
         )}
@@ -137,9 +135,11 @@ Projects.propTypes = {
       name: PropTypes.string.isRequired,
       skill: PropTypes.array.isRequired,
       description: PropTypes.string.isRequired,
+      feature: PropTypes.array.isRequired,
       image: PropTypes.string.isRequired,
       gitUrl: PropTypes.string.isRequired,
       demoUrl: PropTypes.string.isRequired,
+      gif: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
 };

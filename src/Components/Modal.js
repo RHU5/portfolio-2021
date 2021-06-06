@@ -26,7 +26,7 @@ const Box = styled.div`
   padding: 30px;
   overflow-x: auto;
   @media (max-width: 770px) {
-    padding: 10px;
+    padding: 20px;
     width: 95%;
   }
 `;
@@ -42,34 +42,59 @@ const Image = styled.img`
 
 const LinkBox = styled.div`
   width: 100%;
-  padding: 20px 0px 10px;
-  font-size: 30px;
+  padding: 20px 0px 20px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Button = styled.button`
+  width: 49%;
+  padding: 5px 0px;
+  background-color: #ff9f43;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  font-weight: 700;
+  box-shadow: inset 0px -3px #ffbe76;
+  :hover {
+    background-color: #f0932b;
+  }
+  :active {
+    box-shadow: inset 0px 3px #ffbe76;
+  }
   @media (max-width: 770px) {
-    padding: 10px 0px 5px;
-    font-size: 15px;
   }
 `;
 
 const Link = styled.a`
-  :hover {
-    color: red;
-  }
+  display: block;
+  width: 100%;
 `;
 
 const Divider = styled.span`
   padding: 0px 10px;
 `;
 
-const Text = styled.p`
-  width: 100%;
-  line-height: 2;
-  font-size: 20px;
-  @media (max-width: 770px) {
-    font-size: 10px;
+const TextBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const SubTitle = styled.span`
+  margin-bottom: 20px;
+`;
+const Summary = styled.span`
+  margin-bottom: 20px;
+  line-height: 1.5;
+`;
+const Feature = styled.span`
+  :not(:last-child) {
+    margin-bottom: 20px;
   }
 `;
 
-const Modal = ({ closeModal, gitUrl, demoUrl, description, gif }) => {
+const Modal = ({ closeModal, description, feature, gitUrl, demoUrl, gif }) => {
   return (
     <BackDrop onClick={closeModal}>
       <Box>
@@ -77,15 +102,26 @@ const Modal = ({ closeModal, gitUrl, demoUrl, description, gif }) => {
           <Image src={gif} alt="" />
         </ImageBox>
         <LinkBox>
-          <Link href={gitUrl} target="_blank" rel="noreferrer">
-            Git Link
-          </Link>
-          <Divider>|</Divider>
-          <Link href={demoUrl} target="_blank" rel="noreferrer">
-            Demo Link
-          </Link>
+          <Button>
+            <Link href={gitUrl} target="_blank" rel="noreferrer">
+              Git
+            </Link>
+          </Button>
+          <Divider></Divider>
+          <Button>
+            <Link href={demoUrl} target="_blank" rel="noreferrer">
+              Demo
+            </Link>
+          </Button>
         </LinkBox>
-        <Text>{description}</Text>
+        <TextBox>
+          <SubTitle>💬 개요</SubTitle>
+          <Summary>{description}</Summary>
+          <SubTitle>✨ 특징</SubTitle>
+          {feature.map((text, index) => (
+            <Feature key={index}>{text}</Feature>
+          ))}
+        </TextBox>
       </Box>
     </BackDrop>
   );
@@ -93,9 +129,10 @@ const Modal = ({ closeModal, gitUrl, demoUrl, description, gif }) => {
 
 Modal.propTypes = {
   closeModal: PropTypes.func.isRequired,
+  description: PropTypes.string.isRequired,
+  feature: PropTypes.array.isRequired,
   gitUrl: PropTypes.string.isRequired,
   demoUrl: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
   gif: PropTypes.string.isRequired,
 };
 

@@ -96,10 +96,10 @@ const Home = () => {
   const section = useRef([]);
 
   useEffect(() => {
-    const newImage = new Image();
-    preloadImage.forEach((image) => (newImage.src = image));
-    newImage.onload = () => {
-      setIsLoading(false);
+    preloadImage.forEach((image) => (new Image().src = image));
+    window.addEventListener('load', () => setIsLoading(false));
+    return () => {
+      window.removeEventListener('load', () => setIsLoading(false));
     };
   });
 
