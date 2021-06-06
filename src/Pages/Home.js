@@ -154,8 +154,8 @@ const Home = () => {
         <Loader />
       ) : (
         [
-          <Welcome />,
-          <WhoIAm />,
+          <Welcome backdrop={info.backdrop} />,
+          <WhoIAm profile={info.profile} />,
           <Projects projects={info.project} />,
           <HowToStudy study={info.study} />,
           <Contacts />,

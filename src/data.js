@@ -11,6 +11,8 @@ import movieapp from 'assets/movieapp.png';
 import trashcan from 'assets/trashcan.png';
 import boxmarket from 'assets/boxmarket.png';
 import thunderinfo from 'assets/thunderinfo.png';
+import backdrop from 'assets/backdrop.jpg';
+import profile from 'assets/profile.jpg';
 
 export const preloadImage = [
   html,
@@ -26,9 +28,13 @@ export const preloadImage = [
   trashcan,
   boxmarket,
   thunderinfo,
+  backdrop,
+  profile,
 ];
 
 export const data = {
+  backdrop: backdrop,
+  profile: profile,
   project: [
     {
       id: 0,

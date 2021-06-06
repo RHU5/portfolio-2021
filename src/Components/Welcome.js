@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
-
-import backdrop from 'assets/backdrop.jpg';
+import PropTypes from 'prop-types';
 
 const blink = keyframes`
   \ 0% {
@@ -40,7 +39,7 @@ const Box = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(${backdrop});
+  background-image: url(${({ backdrop }) => backdrop});
   background-size: cover;
   background-position: top;
   position: relative;
@@ -85,7 +84,7 @@ const Icon = styled.i`
   }
 `;
 
-const Welcome = () => {
+const Welcome = ({ backdrop }) => {
   const section = useRef();
 
   const handleClick = ({ current }) => {
@@ -97,7 +96,7 @@ const Welcome = () => {
   };
 
   return (
-    <Box ref={section}>
+    <Box ref={section} backdrop={backdrop}>
       <Title>
         Portfolio of applicant
         <br />
@@ -111,6 +110,10 @@ const Welcome = () => {
       ></Icon>
     </Box>
   );
+};
+
+Welcome.propTypes = {
+  backdrop: PropTypes.string.isRequired,
 };
 
 export default Welcome;

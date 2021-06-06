@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Box = styled.div`
   padding: 100px;
@@ -233,6 +234,20 @@ const HowToStudy = ({ study }) => {
       </ProjectList>
     </Box>
   );
+};
+
+HowToStudy.propTypes = {
+  study: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      skill: PropTypes.array.isRequired,
+      description: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      gitUrl: PropTypes.string.isRequired,
+      demoUrl: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 export default HowToStudy;

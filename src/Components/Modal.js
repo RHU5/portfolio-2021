@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const BackDrop = styled.div`
   position: fixed;
@@ -88,6 +89,14 @@ const Modal = ({ closeModal, gitUrl, demoUrl, description, gif }) => {
       </Box>
     </BackDrop>
   );
+};
+
+Modal.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+  gitUrl: PropTypes.string.isRequired,
+  demoUrl: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  gif: PropTypes.string.isRequired,
 };
 
 export default Modal;

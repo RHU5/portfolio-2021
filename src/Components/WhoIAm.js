@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import profile from 'assets/profile.jpg';
+import PropTypes from 'prop-types';
 
 const Box = styled.div`
   padding: 100px;
@@ -59,7 +58,7 @@ const Text = styled.p`
   }
 `;
 
-const WhoIAm = () => {
+const WhoIAm = ({ profile }) => {
   return (
     <Box>
       <Title>Who I AM</Title>
@@ -97,6 +96,10 @@ const WhoIAm = () => {
       </Content>
     </Box>
   );
+};
+
+WhoIAm.propTypes = {
+  profile: PropTypes.string.isRequired,
 };
 
 export default WhoIAm;
