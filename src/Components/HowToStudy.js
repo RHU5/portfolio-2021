@@ -94,7 +94,7 @@ const ProjectItem = styled.div`
   }
 `;
 
-const Image = styled.img`
+const ImageUrl = styled.img`
   width: 100%;
   border-top: 5px solid #636e72;
   border-bottom: 5px solid #636e72;
@@ -110,10 +110,10 @@ const NameBox = styled.div`
 const Name = styled.span`
   display: block;
   padding: 30px 20px 20px;
-  font-size: 30px;
+  font-size: 20px;
   color: white;
   @media (max-width: 770px) {
-    font-size: 18px;
+    font-size: 15px;
   }
 `;
 
@@ -122,7 +122,7 @@ const LinkBox = styled.div`
 `;
 
 const Link = styled.a`
-  font-size: 30px;
+  font-size: 20px;
   color: white;
   :not(:last-child) {
     margin-right: 10px;
@@ -131,7 +131,7 @@ const Link = styled.a`
     color: red;
   }
   @media (max-width: 770px) {
-    font-size: 18px;
+    font-size: 15px;
   }
 `;
 
@@ -165,6 +165,15 @@ const HowToStudy = ({ study }) => {
       return;
     }
     setCurrentPos(currentPos - 1);
+  };
+
+  const handleLoad = () => {
+    const newImage = new Image();
+    if (currentPos < study.length - 1) {
+      newImage.src = study[currentPos + 1].image;
+    } else {
+      newImage.src = study[0].image;
+    }
   };
 
   return (
@@ -219,8 +228,7 @@ const HowToStudy = ({ study }) => {
               <Icon key={index} src={icon} alt="" />
             ))}
           </IconBox>
-
-          <Image src={study[currentPos].image} />
+          <ImageUrl src={study[currentPos].image} onLoad={handleLoad} />
         </ProjectItem>
       </ProjectList>
     </Box>

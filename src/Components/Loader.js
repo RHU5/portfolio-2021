@@ -58,7 +58,7 @@ const Rect = styled.div`
 
 const Loader = () => {
   return (
-    <Spinner class="spinner">
+    <Spinner>
       <Rect></Rect>
       <Rect></Rect>
       <Rect></Rect>
