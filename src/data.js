@@ -43,7 +43,7 @@ export const data = {
       description:
         '박스마켓은 "기존 중고 거래 사이트에 직거래 장소를 지도로 표시할 수 있는 기능이 있으면 어떨까?" 라는 생각에서 출발하였습니다.',
       feature: [
-        '✔ express를 이용한 서버 생성',
+        '✔ Express를 이용한 서버 생성',
         '✔ MongoDB로 유저 및 게시글 관리',
         '✔ passport.js를 이용한 로그인 구현',
         '✔ multer S3를 이용한 aws 업로드',
