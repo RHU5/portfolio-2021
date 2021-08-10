@@ -34,50 +34,63 @@ const moveUpToDown = keyframes`
   }
 `;
 
-const Box = styled.div`
-  height: calc(100vh - 60px);
+const S = {};
+
+S.Section = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  height: calc(100vh - 60px);
+
+  position: relative;
+
   background-image: url(${({ backdrop }) => backdrop});
   background-size: cover;
   background-position: top;
-  position: relative;
+
   :after {
     content: '';
+
     position: absolute;
     bottom: 0;
     left: 0;
+
     pointer-events: none;
     background-image: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 0),
       rgba(255, 255, 255, 1) 90%
     );
-    width: 100%;
+
     height: 10em;
+    width: 100%;
   }
 `;
 
-const Title = styled.h3`
+S.Message = styled.h1`
+  white-space: pre-line;
   font-size: 38px;
   font-weight: 700;
   line-height: 2;
   text-align: center;
   opacity: 0;
   animation: ${blink} 1s 0.5s ease-in-out forwards;
+
   @media (max-width: 770px) {
     font-size: 30px;
   }
 `;
 
-const Icon = styled.i`
+S.Icon = styled.i`
   position: absolute;
   bottom: 30px;
-  font-size: 30px;
-  animation: ${moveUpToDown} 2s ease-out 5;
-  cursor: pointer;
   z-index: 1;
+
+  font-size: 30px;
+  cursor: pointer;
+  animation: ${moveUpToDown} 2s ease-out 5;
+
   :hover {
     font-size: 40px;
     transition: font-size 0.1s linear;
@@ -96,19 +109,17 @@ const Welcome = ({ backdrop }) => {
   };
 
   return (
-    <Box ref={section} backdrop={backdrop}>
-      <Title>
-        Portfolio of applicant
-        <br />
+    <S.Section ref={section} backdrop={backdrop}>
+      <S.Message>
+        {`Portfolio of applicant
         preparing
-        <br />
-        Front-end developer.
-      </Title>
-      <Icon
+        Front-end developer.`}
+      </S.Message>
+      <S.Icon
         onClick={() => handleClick(section)}
         className="fas fa-arrow-circle-down"
-      ></Icon>
-    </Box>
+      ></S.Icon>
+    </S.Section>
   );
 };
 

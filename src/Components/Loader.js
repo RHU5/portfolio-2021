@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const stretchdelay = keyframes` 
@@ -20,7 +19,9 @@ const stretchdelay = keyframes`
   }  
   `;
 
-const Spinner = styled.div`
+const S = {};
+
+S.Spinner = styled.div`
   position: absolute;
   top: 0px;
   left: 0px;
@@ -33,7 +34,7 @@ const Spinner = styled.div`
   align-items: center;
 `;
 
-const Rect = styled.div`
+S.Rect = styled.div`
   background-color: #333;
   height: 100px;
   width: 20px;
@@ -58,13 +59,13 @@ const Rect = styled.div`
 
 const Loader = () => {
   return (
-    <Spinner>
-      <Rect></Rect>
-      <Rect></Rect>
-      <Rect></Rect>
-      <Rect></Rect>
-      <Rect></Rect>
-    </Spinner>
+    <S.Spinner>
+      <S.Rect></S.Rect>
+      <S.Rect></S.Rect>
+      <S.Rect></S.Rect>
+      <S.Rect></S.Rect>
+      <S.Rect></S.Rect>
+    </S.Spinner>
   );
 };
 

@@ -3,53 +3,65 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Modal from './Modal';
 
-const Box = styled.div`
+const S = {};
+
+S.Section = styled.section`
   padding: 100px;
   background: rgb(255, 255, 255);
   background: linear-gradient(
     rgba(168, 168, 168, 1) 0%,
     rgba(112, 112, 112, 1) 100%
   );
+
   @media (max-width: 770px) {
     padding: 100px 20px;
   }
 `;
 
-const Title = styled.h3`
+S.Title = styled.h1`
+  padding-bottom: 20px;
+  margin-bottom: 80px;
+
   font-size: 50px;
   font-weight: 700;
   border-bottom: 5px solid black;
-  padding-bottom: 20px;
-  margin-bottom: 80px;
+
   @media (max-width: 770px) {
     margin-bottom: 30px;
     font-size: 30px;
   }
 `;
 
-const ProjectList = styled.ul`
+S.ProjectList = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
   justify-content: center;
   gap: 30px;
+
   width: 100%;
 `;
 
-const ProjectItem = styled.li`
+S.ProjectItem = styled.li`
+  position: relative;
+
   border-radius: 10px;
   background-color: black;
   box-shadow: 8px 8px 6px 3px rgba(50, 50, 50, 1);
-  position: relative;
+
   :hover::after {
     content: '자세히 보기';
+
     position: absolute;
     top: 0px;
     left: 0px;
+
     width: 100%;
     height: 100%;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     background-color: rgba(50, 50, 50, 0.8);
     border-radius: 10px;
     color: white;
@@ -59,27 +71,27 @@ const ProjectItem = styled.li`
   }
 `;
 
-const Name = styled.span`
+S.ProjectName = styled.span`
   display: block;
   padding: 25px 20px 15px;
   font-size: 20px;
   color: white;
 `;
 
-const Image = styled.img`
+S.ProjectImage = styled.img`
   width: 100%;
   border-top: 5px solid #636e72;
   border-bottom: 5px solid #636e72;
 `;
 
-const IconBox = styled.div`
+S.IconBox = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9%, 10%));
   gap: 10px;
   padding: 10px 20px 20px;
 `;
 
-const Icon = styled.img`
+S.Icon = styled.img`
   width: 100%;
   background-color: white;
   border-radius: 5px;
@@ -99,19 +111,22 @@ const Projects = ({ projects }) => {
   };
 
   return (
-    <Box>
-      <Title>Projects</Title>
-      <ProjectList>
+    <S.Section>
+      <S.Title>Projects</S.Title>
+      <S.ProjectList>
         {projects.map((project, index) => (
-          <ProjectItem key={project.id} onClick={() => openModal(index)}>
-            <Name>{project.name}</Name>
-            <Image src={project.image} />
-            <IconBox>
+          <S.ProjectItem
+            key={project.id}
+            onClick={() => openModal(index)}
+          >
+            <S.ProjectName>{project.name}</S.ProjectName>
+            <S.ProjectImage src={project.image} />
+            <S.IconBox>
               {project.skill.map((icon, index) => (
-                <Icon key={index} src={icon} alt="" />
+                <S.Icon key={index} src={icon} alt="" />
               ))}
-            </IconBox>
-          </ProjectItem>
+            </S.IconBox>
+          </S.ProjectItem>
         ))}
         {currentPos !== null && (
           <Modal
@@ -123,8 +138,8 @@ const Projects = ({ projects }) => {
             gif={projects[currentPos].gif}
           />
         )}
-      </ProjectList>
-    </Box>
+      </S.ProjectList>
+    </S.Section>
   );
 };
 
