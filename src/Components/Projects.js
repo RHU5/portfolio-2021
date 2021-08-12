@@ -48,6 +48,10 @@ S.ProjectItem = styled.li`
   background-color: black;
   box-shadow: 8px 8px 6px 3px rgba(50, 50, 50, 1);
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   :hover::after {
     content: '자세히 보기';
 
@@ -88,7 +92,7 @@ S.IconBox = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9%, 10%));
   gap: 10px;
-  padding: 10px 20px 20px;
+  padding: 20px;
 `;
 
 S.Icon = styled.img`

@@ -165,7 +165,6 @@ HowToStudy.propTypes = {
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       skill: PropTypes.array.isRequired,
-      description: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
       gitUrl: PropTypes.string.isRequired,
       demoUrl: PropTypes.string.isRequired,

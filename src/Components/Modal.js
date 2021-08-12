@@ -128,6 +128,9 @@ const Modal = ({
           </S.Button>
         </S.LinkBox>
         <S.TextBox>
+          <S.SubTitle>
+            🎫 테스트 아이디: test@test.com / 1234
+          </S.SubTitle>
           <S.SubTitle>💬 개요</S.SubTitle>
           <S.Summary>{description}</S.Summary>
           <S.SubTitle>✨ 특징</S.SubTitle>

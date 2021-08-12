@@ -1,9 +1,10 @@
-import html from 'assets/html.png';
-import css from 'assets/css.png';
-import js from 'assets/js.png';
-import react from 'assets/react.png';
-import nodejs from 'assets/nodejs.png';
-import mongodb from 'assets/mongodb.png';
+import html from 'assets/skills/html.png';
+import css from 'assets/skills/css.png';
+import js from 'assets/skills/js.png';
+import react from 'assets/skills/react.png';
+import nodejs from 'assets/skills/nodejs.png';
+import mongodb from 'assets/skills/mongodb.png';
+
 import spongetalk from 'assets/spongetalk.png';
 import momentum from 'assets/momentum.png';
 import wetube from 'assets/wetube.png';
@@ -11,6 +12,8 @@ import movieapp from 'assets/movieapp.png';
 import trashcan from 'assets/trashcan.png';
 import boxmarket from 'assets/boxmarket.png';
 import thunderinfo from 'assets/thunderinfo.png';
+import todaydate from 'assets/todaydate.png';
+
 import backdrop from 'assets/backdrop.jpg';
 import profile from 'assets/profile.jpg';
 
@@ -28,6 +31,7 @@ export const preloadImage = [
   trashcan,
   boxmarket,
   thunderinfo,
+  todaydate,
   backdrop,
   profile,
 ];
@@ -41,19 +45,33 @@ export const data = {
       name: '박스마켓',
       skill: [html, css, js, nodejs, mongodb],
       description:
-        '박스마켓은 "기존 중고 거래 사이트에 직거래 장소를 지도로 표시할 수 있는 기능이 있으면 어떨까?" 라는 생각에서 출발하였습니다.',
+        '서버 사이드 렌더링 방식으로 CRUD 기능이 구현된 웹 페이지를 제작해보려는 목표를 가지고 개발하였습니다.',
       feature: [
-        '✔ Express를 이용한 서버 생성',
-        '✔ MongoDB로 유저 및 게시글 관리',
+        '✔ SSR 방식의 CRUD 구현',
         '✔ passport.js를 이용한 로그인 구현',
         '✔ multer S3를 이용한 aws 업로드',
         '✔ 카카오 맵 API 활용',
-        '✔ MVC 패턴 활용',
       ],
       image: boxmarket,
       gitUrl: 'https://github.com/RHU5/seconde-hand-store-2021-side',
       demoUrl: 'https://shstore.herokuapp.com/',
       gif: 'https://user-images.githubusercontent.com/75672249/117532289-a72bb180-b021-11eb-8fda-55b9a091321c.gif',
+    },
+    {
+      id: 1,
+      name: '오늘의 데이트',
+      skill: [html, css, js, react, nodejs, mongodb],
+      description:
+        '클라이언트와 서버를 구분하여 비동기 통신을 통해 CRUD 기능이 구현된 SPA 웹 페이지를 제작해보려는 목표를 가지고 개발하였습니다.',
+      feature: [
+        '✔ CSR 방식의 CRUD가 구현된 SPA',
+        '✔ passport.js를 이용한 로그인 구현',
+        '✔ multer S3를 이용한 aws 업로드',
+      ],
+      image: todaydate,
+      gitUrl: 'https://github.com/RHU5/today-date-side',
+      demoUrl: 'https://today-date.herokuapp.com/',
+      gif: 'https://user-images.githubusercontent.com/75672249/129146361-8196e146-fe4c-46ce-a631-5a6d43d7b779.gif',
     },
   ],
   study: [
@@ -98,7 +116,7 @@ export const data = {
       demoUrl: 'https://rhu5.github.io/emotion-trash-can-2021-side/',
     },
     {
-      id: 2,
+      id: 5,
       name: '썬더 인포',
       skill: [html, css, js, react],
       image: thunderinfo,
